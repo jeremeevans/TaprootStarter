@@ -1,0 +1,50 @@
+{
+  "name": "taprootstarter",
+  "version": "1.0.0",
+  "description": "Template for creating a website based on Taproot IO",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "build:watch": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch",
+    "start": "web-dev-server --watch",
+    "dev": "npm run start & npm run build:watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremeevans/TaprootStarter.git"
+  },
+  "keywords": [
+    "Static",
+    "website",
+    "template"
+  ],
+  "author": "Jereme Evans",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremeevans/TaprootStarter/issues"
+  },
+  "homepage": "https://github.com/jeremeevans/TaprootStarter#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@taprootio/markdown-page-renderer": "^0.1.1",
+    "@taprootio/nunjucks-template-parser": "^0.1.1",
+    "@taprootio/rollup-plugin-taproot": "^0.1.1",
+    "@taprootio/site-header": "^0.1.1",
+    "@types/postcss-url": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "@web/dev-server": "^0.1.34",
+    "eslint": "^8.22.0",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.78.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.54.5",
+    "tslib": "^2.4.0"
+  }
+}

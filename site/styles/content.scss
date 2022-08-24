@@ -1,0 +1,147 @@
+@mixin main-content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 660px;
+
+  > p,
+  ul > li,
+  ol > li,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5 {
+    a {
+      font-weight: bold;
+      text-decoration: underline;
+      color: var(--color-secondary-medium);
+      transition: all ease-in;
+
+      &.header-anchor {
+        position: absolute;
+        left: -0.5em;
+        display: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: var(--color-secondary-light);
+      }
+    }
+
+    &:hover {
+      a.header-anchor {
+        display: inline;
+      }
+    }
+  }
+
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  ul,
+  ol {
+    padding: 0 15px;
+    position: relative;
+    text-rendering: optimizeLegibility;
+  }
+
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5 {
+    margin: 1.618em 0 0;
+  }
+
+  > h1:first-child {
+    margin: 15px 0 0;
+  }
+
+  ul,
+  ol {
+    padding-left: 42px;
+  }
+
+  > blockquote {
+    font-size: 1.2em;
+    display: grid;
+    grid-template-columns: 1em auto 1em;
+    grid-template-rows: 1em auto 1em;
+    margin: 0;
+
+    p {
+      grid-column: 2;
+      grid-row: 2;
+      display: block;
+      background-color: var(--color-secondary-light);
+      color: var(--color-primary);
+      z-index: 1;
+      margin: 0;
+      padding: 1em;
+      border-radius: 0.25em;
+      border: 2px dashed var(--color-secondary-medium);
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    &::before,
+    &::after {
+      font-size: 5em;
+      color: var(--color-primary);
+      z-index: 2;
+    }
+
+    &::before {
+      content: "“";
+      grid-column: 1;
+      grid-row: 1;
+      line-height: 1em;
+    }
+
+    &::after {
+      content: "”";
+      grid-column: 3;
+      grid-row: 3;
+      line-height: 0.25em;
+      justify-self: end;
+    }
+  }
+
+  > table {
+    border: 1px solid var(--color-primary);
+    margin: 15px;
+    border-collapse: collapse;
+
+    thead {
+      border-bottom: 1px solid var(--color-primary);
+
+      th {
+        border-right: 1px solid var(--color-primary);
+        padding: 5px;
+      }
+    }
+
+    tr {
+      border-bottom: 1px dotted var(--color-primary);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    td {
+      border-right: 1px dotted var(--color-primary);
+      vertical-align: top;
+      padding: 5px;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}

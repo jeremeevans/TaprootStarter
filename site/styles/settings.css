@@ -1,0 +1,50 @@
+html:root {
+  --body-font: "Roboto Condensed", sans-serif;
+  --header-font: "Rubik Dirt", cursive;
+  --root-font-size: 22px;
+  --layout-left-padding: 20px;
+  --taproot-header-button-stroke-width: 7px;
+  --primary-hue: 195;
+  --secondary-hue: calc(var(--primary-hue) + 180);
+  --primary-saturation: 70%;
+  --nav-hue: var(--primary-hue);
+  --color-primary-darkest: hsl(
+    var(--primary-hue),
+    var(--primary-saturation),
+    20%
+  );
+  --color-primary-dark: hsl(var(--primary-hue), var(--primary-saturation), 40%);
+  --color-primary: hsl(var(--primary-hue), var(--primary-saturation), 50%);
+  --color-primary-light: hsl(
+    var(--primary-hue),
+    var(--primary-saturation),
+    60%
+  );
+  --color-primary-lightest: hsl(
+    var(--primary-hue),
+    var(--primary-saturation),
+    80%
+  );
+
+  --color-secondary-darkest: hsl(
+    var(--secondary-hue),
+    var(--primary-saturation),
+    20%
+  );
+  --color-secondary-dark: hsl(
+    var(--secondary-hue),
+    var(--primary-saturation),
+    40%
+  );
+  --color-secondary: hsl(var(--secondary-hue), var(--primary-saturation), 50%);
+  --color-secondary-light: hsl(
+    var(--secondary-hue),
+    var(--primary-saturation),
+    60%
+  );
+  --color-secondary-lightest: hsl(
+    var(--secondary-hue),
+    var(--primary-saturation),
+    80%
+  );
+}
