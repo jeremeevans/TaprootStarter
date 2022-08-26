@@ -5,6 +5,10 @@
   "editor.formatOnSave": true, // optional
   "editor.formatOnSaveMode": "file", // required to format on save
   "files.autoSave": "onFocusChange",
+  "emmet.includeLanguages": {
+    "njk": "html",
+    "nunjucks": "html"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
@@ -21,6 +25,6 @@
     "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
   },
   "[njk]": {
-    "editor.defaultFormatter": "eseom.nunjucks-template"
-  } // optional but recommended
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  }
 }

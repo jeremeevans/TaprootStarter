@@ -12,6 +12,8 @@
     }
   },
 
+  "runArgs": ["--name=TaprootStarter"],
+
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
@@ -23,8 +25,9 @@
         "ms-azuretools.vscode-docker",
         "mrmlnc.vscode-scss",
         "davidanson.vscode-markdownlint",
-        "eseom.nunjucks-template",
-        "runem.lit-plugin"
+        "runem.lit-plugin",
+        "okitavera.vscode-nunjucks-formatter",
+        "ronnidc.nunjucks"
       ]
     }
   },

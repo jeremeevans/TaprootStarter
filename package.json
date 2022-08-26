@@ -8,6 +8,8 @@
     "build:watch": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch",
     "start": "web-dev-server --watch",
     "dev": "npm run start & npm run build:watch",
+    "createCNAME": "touch dist/CNAME && echo '<YOUR-DOMAIN>' >> dist/CNAME",
+    "deploy": "npm run build && npm run createCNAME && gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -38,6 +40,7 @@
     "@typescript-eslint/parser": "^5.33.1",
     "@web/dev-server": "^0.1.34",
     "eslint": "^8.22.0",
+    "gh-pages": "^4.0.0",
     "postcss-url": "^10.1.3",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
