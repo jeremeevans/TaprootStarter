@@ -12,6 +12,8 @@
     }
   },
 
+  "mounts": ["source=/Users/jeremeevans/docker/volumes/yalc,target=/yalc,type=bind,consistency=cached"],
+
   "runArgs": ["--name=TaprootStarter"],
 
   // Configure tool-specific properties.

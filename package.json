@@ -4,8 +4,8 @@
   "description": "Template for creating a website based on Taproot IO",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-    "build:watch": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch",
+    "build": "rimraf dist && rollup --config rollup.config.js",
+    "build:watch": "rimraf dist && rollup --config rollup.config.js --watch",
     "start": "web-dev-server --watch",
     "dev": "npm run start & npm run build:watch",
     "createCNAME": "touch dist/CNAME && echo '<YOUR-DOMAIN>' >> dist/CNAME",

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8"/>
+        {{ Head | safe }}
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -10,16 +10,22 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#2b5797">
         <meta name="theme-color" content="#ffffff">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>{{ Title }}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik+Dirt&display=swap"
-            rel="stylesheet"> {{ Links | safe }}
+            rel="stylesheet">
     </head>
-    <body>
+    <body class="loading">
+
+        {% if CSSVars %}
+            <style>
+                html:root {
+                    {{CSSVars}}
+                }
+            </style>
+        {% endif %}
+
         <div class="layout">
             <site-header>
                 <a href="/" class="header-title" slot="site-name">
@@ -32,18 +38,47 @@
                 </section>
             </site-header>
 
-            <main>
-                <h1>{{ Title }}</h1>
-                {% if LastUpdated %}
-                    <p class="last-updated">
-                        <strong>Last updated:</strong>
-                        <time>
-                            {{ LastUpdated }}
-                        </time>
-                    </p>
+            <{{ 'article itemscope itemtype=http://schema.org/Article' if PageType == "article" else "main" | safe }}>
+                {% if not HidePageHead %}
+                    <header>
+                        <section id="article-details">
+                            <h1 style="grid-column: 1 / span 2;">{{ Title }}</h1>
+                            {% if DatePublished or DateModified %}
+                                <strong>{{ "Updated" if DateModified else "Published"}} ➡️</strong>
+
+                                <time itemprop="{{'dateModified' if DateModified else 'datePublished'}}" style="grid-column: 2;">
+                                    {% if DateModified %}
+                                        {{ DateModified | postdate | safe }}
+                                    {% else %}
+                                        {{ DatePublished | postdate | safe }}
+                                    {% endif %}
+                                </time>
+                            {% endif %}
+
+                            {% if Author %}
+                                <strong>Author ➡️</strong>
+
+                                <a rel="author" style="grid-column: 2;" href="{{Author.Url}}">
+                                    {{ Author.Name }}
+                                </a>
+                            {% endif %}
+
+                            {%if Tags.length %}
+                                <strong>Tags ➡️</strong>
+                                <ul style="grid-column: 2;" class="tags">
+                                    {% for tag in Tags %}
+                                        <li itemprop="keywords">
+                                            <a href="{{tag.Url}}">{{tag.Tag}}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </section>
+                    </header>
                 {% endif %}
+
                 {{ Contents | safe }}
-            </main>
+            </{{ "article" if PageType == "article" else "main" }}>
 
             <footer>
                 <p class="crafted-by">Crafted with ❤️ by Jereme</p>

@@ -1,0 +1,73 @@
+@mixin content-header {
+  > header {
+    background: var(--article-header-background);
+    padding: var(--layout-left-padding) 0 0;
+
+    section {
+      display: grid;
+      grid-template-columns: max-content auto;
+      padding: 0 var(--layout-left-padding);
+      font-size: 0.8em;
+
+      > h1 {
+        font-size: 2em;
+        margin: 0 0 0.5em;
+      }
+
+      > strong {
+        grid-column: 1;
+        text-align: right;
+        margin-right: 0.75em;
+      }
+
+      > a,
+      > strong {
+        line-height: 1.75em;
+      }
+
+      > time {
+        line-height: 1.3em;
+      }
+
+      > p {
+        margin: 0;
+      }
+
+      &#article-tags {
+        display: flex;
+
+        strong {
+          line-height: 1.75em;
+        }
+      }
+    }
+
+    ul.tags {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        list-style: none;
+        > a {
+          color: var(--color-secondary-darkest);
+          text-decoration: none;
+          display: block;
+          padding: 0.25em 0.5em;
+          border: 1px solid var(--color-primary-light);
+          background: var(--color-primary-lightest);
+          border-radius: 0.25em;
+          margin: 0.25em 0;
+          margin-right: 0.5em;
+          font-size: 0.75em;
+          transition: all ease-in-out 250ms;
+
+          &:hover {
+            background-color: var(--color-primary-light);
+          }
+        }
+      }
+    }
+  }
+}

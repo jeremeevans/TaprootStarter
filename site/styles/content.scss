@@ -1,7 +1,10 @@
+@import "./content-header";
+
 @mixin main-content {
   margin: 0 auto;
   width: 100%;
-  max-width: 660px;
+
+  @include content-header;
 
   > p,
   ul > li,
@@ -15,7 +18,7 @@
       font-weight: bold;
       text-decoration: underline;
       color: var(--color-secondary-medium);
-      transition: all ease-in;
+      transition: color ease-in 125ms;
 
       &.header-anchor {
         position: absolute;
@@ -44,7 +47,7 @@
   > h5,
   ul,
   ol {
-    padding: 0 15px;
+    padding: 0 var(--layout-left-padding);
     position: relative;
     text-rendering: optimizeLegibility;
   }
@@ -59,7 +62,7 @@
   }
 
   > h1:first-child {
-    margin: 15px 0 0;
+    margin: var(--layout-left-padding) 0 0;
   }
 
   ul,
@@ -114,7 +117,7 @@
 
   > table {
     border: 1px solid var(--color-primary);
-    margin: 15px;
+    margin: var(--layout-left-padding);
     border-collapse: collapse;
 
     thead {

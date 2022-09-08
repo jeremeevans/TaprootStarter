@@ -1,0 +1,20 @@
+@mixin article-list {
+  ul.articles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+
+    li {
+      padding: var(--layout-left-padding) 0;
+      margin: 6px var(--layout-left-padding);
+      border-bottom: 2px dotted var(--color-primary);
+
+      article {
+        > h2 {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
